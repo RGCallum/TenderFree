@@ -360,22 +360,27 @@ const SubtotalBox = styled.div`
 border:.5px solid rgba(0,0,0, 0.2);
 border-radius: 2px;
 padding: 5px;
-
+width: 50%;
 tr{
-    // display: flex;
-    
     align-items: center;
-
 }
+.namefee, .otherfee{
+    float: left;
+    text-align: left;
+        }
 input{
-    border: none;
     float: right; 
     text-align: right;
     align-content: right;
-    
+    background: rgba(151, 240, 240, 0.2);
+
+}
+#viewSubs{
+    background: transparent;
+    border: none;
 }
 input:focus, textarea:focus{
-    background: transparent;
+    // background: transparent;
 
 }
 label{
@@ -419,10 +424,16 @@ font-weight: bold;
 // padding-bottom: 50px;
 
 input{
-    // background-color: rgba(01, 255, 20, 0.2);
+    background-color: transparent;
     color: rgb(28, 147, 145);
     font-weight: bold;
     width: 132.5px;
+    border: none;
+   
+
+}
+input:focus{
+    background: transparent;
 
 }
 @media only screen and (max-width: 414px) {
@@ -1300,23 +1311,23 @@ class EmployeeShow extends Component {
 
 
                                                         {/* changeable fees for another company fee */}
-                                                        <br/> <br/>
-                                            <th>   <label htmlFor="namefee" >Add'l Fees(opt):</label></th>
-                                            <input
+                                                       
+                                            <tr><label htmlFor="namefee" >Add'l Fees(opt):</label></tr>
+                                            <input className="namefee"
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="text" placeholder='Business Fees (optional) name' name="namefee" value={invoice.namefee} /> <br/>
+                                            type="text" placeholder='Business Fees (optional) name' name="namefee" value={invoice.namefee} /> 
                                             <input className="arfee"
                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                 onChange={(event) => this.handleChange(event, invoice._id)}
                                                 type="text" name="arisefee" value={(invoice.arisefee)} placeholder='enter 0 if none' required='true'
                                             />
                                             <br/> <br/>
-                                            <th>    <label htmlFor="otherfee">Other fee(decimals): </label></th>
-                                            <input
+                                            <tr>    <label htmlFor="otherfee">Other fee(decimals): </label></tr>
+                                            <input className="otherfee"
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="text" placeholder='Taxes (optional) name' name="otherfee" value={invoice.otherfee} /> <br/>
+                                            type="text" placeholder='Taxes (optional) name' name="otherfee" value={invoice.otherfee} /> 
                                             <input
                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                 onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1365,12 +1376,12 @@ class EmployeeShow extends Component {
 
                                                         <TotalDue>
                                                             {/* another company totals */}
-                                                            <th>   <label htmlFor="totaldue">Total <span> <FaMoneyBillAlt/> </span> Due this period: </label></th>
-                                                $<input
+                                                            <th>   <label htmlFor="totaldue">Total <span> <FaHandHoldingUsd /> </span> Due this period: </label></th>
+                                                <input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                     // type="text" name="totaldue" value={"$" + ((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
-                                                    type="number" name="totaldue" value={(((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)}
+                                                    type="text" name="totaldue" value={'$' + (((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)}
 
                                                 /> 
 
