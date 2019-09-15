@@ -221,9 +221,10 @@ class Employee extends Component {
         <NavBar />
         <BkgdColors>
           <div className="overlay">
-          <h1>
-            {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
-            <br/>Employee Directory</h1>
+            <br/>
+            <h1>TenderFree</h1>
+          <h1>Employee Directory </h1>
+            
        <a href="https://tenderpay.herokuapp.com/employees"><button> <FaArrowCircleLeft className='icons'/> Back to sample version</button></a>   
 <br/><br/> 
 <EmployeeOutline>
