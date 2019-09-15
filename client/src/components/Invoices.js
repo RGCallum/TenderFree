@@ -3,7 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import EmployeeShow from './EmployeeShow'
-import { FaPaperPlane, FaMinusCircle, FaShareAlt, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
+import { FaPaperPlane, FaScroll, FaMinusCircle, FaShareAlt, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 import NavBar from '../components/NavBar'
 
 
@@ -882,25 +882,25 @@ class Invoices extends Component {
 
 
     render() {
-        
+
         return (
 
 
             <div>
-<NavBar />
+                <NavBar />
                 <BigDiv>
 
                     <Topbtns>
-                        
+
                         <div className="noprint">
-                        <NameNButtonStyle> 
-                            <h1>{this.state.employee.employeename}</h1> Invoice ID: {this.props.match.params.invoiceId}   
+                            <NameNButtonStyle>
+                                <h1>{this.state.employee.employeename}</h1> Invoice ID: {this.props.match.params.invoiceId}
                             </NameNButtonStyle>
 
                             {/* <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
                                 <FaPlusCircle className='icons' /> Add New Invoice
                             </NewInvoiceButton> */}
-<br/>
+                            <br />
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
                                     <FaIdBadge className='icons' /> Employee Profile
@@ -934,22 +934,22 @@ class Invoices extends Component {
                                     /> */}
 
                                 <InvoiceStyles>
-                                        
+
                                     <BkgdImg>
-                                    <OptionsInvoice className='noprint printSave'>
-<a href="javascript:window.print()" > <button><span><FaPrint /></span><br />Print</button> </a>
-<a href="javascript:window.print()">  <button><span><FaFileDownload /></span><br />Download<br /> </button> </a>
-<a href="mailto:AddThe@ddress.com?subject=Your New Invoice&body=Attached is your invoice for **ADD PAY PERIOD HERE and ATTACH INVOICE**"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
-<a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br />Pay</button>  </a>
+                                        <OptionsInvoice className='noprint printSave'>
+                                            <a href="javascript:window.print()" > <button><span><FaPrint /></span><br />Print</button> </a>
+                                            <a href="javascript:window.print()">  <button><span><FaFileDownload /></span><br />Download<br /> </button> </a>
+                                            <a href="mailto:AddThe@ddress.com?subject=Your New Invoice&body=Attached is your invoice for **ADD PAY PERIOD HERE and ATTACH INVOICE**"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
+                                            <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br />Pay</button>  </a>
 
 
-</OptionsInvoice>
+                                        </OptionsInvoice>
 
                                         <LogoStyles>
                                             <LogoIdDiv>
-<div className="watermark noprint">For Export Only
+                                                <div className="watermark noprint">For Export Only
 <p>(go back to edit)</p>
-</div>
+                                                </div>
                                                 <a href={this.state.invoice.link} >
 
                                                     {/* another company can add its own logo here */}
@@ -987,7 +987,7 @@ class Invoices extends Component {
 
                                             <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay /> </span>Today's Date: </label></th>
                                             <input
-                                                
+
                                                 type="date" name="date" value={this.state.invoice.date}
                                             /><br />
                                             <br /><br />
@@ -997,12 +997,12 @@ class Invoices extends Component {
                                                 <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt /> </span>Pay Period: </label></th>
                                                 <tr>  <label htmlFor="payperiodstart"> Start:</label>
                                                     <input
-                                                        
+
                                                         type="date" name="payperiodstart" value={this.state.invoice.payperiodstart}
                                                     />
                                                     <label htmlFor="payperiodend"> End:</label>
                                                     <input
-                                                        
+
                                                         type="date" name="payperiodend" value={this.state.invoice.payperiodend}
                                                     /></tr><br />
                                             </table>
@@ -1013,76 +1013,76 @@ class Invoices extends Component {
 
 
 
-                                            <div className="row header">
-                                                <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Client </div></td>
-                                                <td>    <div className='required'><span> <FaUserClock /> </span> <br /> Intervals </div></td>
-                                                <td>    <div ><span> <FaClock /> </span> <br />Interval Type </div></td>
-                                                <td>    <div className='required'><span> <FaDollarSign /> </span><br /> Interval Rate </div></td>
-                                                <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
-                                                <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
+                                        <div className="row header">
+                                                        <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Item/Service</div></td>
+                                                        <td>    <div className='required'><span> <FaCartPlus /> </span> <br /> Quantity</div></td>
+                                                        <td>    <div ><span> <FaScroll /> </span> <br />Description</div></td>
+                                                        <td>    <div className='required'><span> <FaDollarSign /> </span><br />Price</div></td>
+                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
+                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
 
-                                            </div>
+                                                    </div>
                                             <div className="lineItems">
                                                 <td >    <input
-                                                    
+
                                                     type="text" name="client" value={this.state.invoice.client} placeholder='Client'
                                                 /></td>
                                                 <td>    <input id="frequency"
-                                                    
+
                                                     // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
                                                     type="number" name="frequency" value={this.state.invoice.frequency} placeholder="Time Worked"
                                                 /></td>
                                                 <td>      <input
-                                                    
+
                                                     type="text" name="result" value={this.state.invoice.result} placeholder='Minute/Half-Hour/Hour'
                                                 /></td>
 
                                                 <td>     <input id='rate'
-                                                    
+
                                                     // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
                                                     type="number" name="rate" value={this.state.invoice.rate} placeholder='Rate of pay 0.00'
                                                 /> </td>
                                                 <td id='sub1'>     <input id='sub1' readOnly
 
-                                                    
+
                                                     // type="number" name="sub1" value={this.state.invoice.sub1}
                                                     type="text" name="sub1" value={"$" + (this.state.invoice.rate * this.state.invoice.frequency).toFixed(2)}
                                                 /> </td>
                                             </div>
 
                                             {
-                                                
+
                                                 <div>
 
 
                                                     <div className="lineItems client2line" id='client2line'>
                                                         <td >    <input
-                                                            
+
                                                             type="text" name="client2" value={this.state.invoice.client2} placeholder='Client'
                                                         /></td>
                                                         <td>    <input id="frequency2"
-                                                            
+
                                                             // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
                                                             type="number" name="frequency2" value={this.state.invoice.frequency2} placeholder="Enter 0 if none"
                                                         /></td>
                                                         <td>      <input
-                                                            
+
                                                             type="text" name="result2" value={this.state.invoice.result2} placeholder='Minute/Half-Hour/Hour'
                                                         /></td>
                                                         <td>     <input id="rate2"
-                                                            
+
                                                             // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
                                                             type="number" name="rate2" value={this.state.invoice.rate2} placeholder="Enter 0 if none"
                                                         /> </td>
                                                         <td id='sub2'>     <input id='sub2' readOnly
 
-                                                            
+
                                                             // type="number" name="sub2" value={this.state.invoice.sub2}
                                                             type="text" name="sub2" value={"$" + (this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2)}
                                                         /> </td>
                                                     </div>
                                                 </div>
-                                               
+
                                             }
                                         </LineItemsGrid>
                                         <Client1Invoice>
@@ -1135,7 +1135,7 @@ class Invoices extends Component {
                                             <CommentsBox>
                                                 <th>   <label htmlFor="comments"><span><FaComments /></span> Notes </label></th>
                                                 <textarea
-                                                    
+
                                                     type="text" name="comments" value={this.state.invoice.comments} placeholder=''></textarea>
                                             </CommentsBox>
                                             {/* <input type="button" value="Calculate Client Subtotals" onClick={e =>
@@ -1190,7 +1190,7 @@ $<input
                                                 <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                     <input className="arfee" id="arisefee" readOnly
                                                         // type="number" name="arisefee" value={20}
-                                                        
+
                                                         type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
                                                     // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
 
@@ -1207,7 +1207,7 @@ $<input
                 /> */}
 
                                                     <input id="callumfee" readOnly
-                                                        
+
 
                                                         // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
                                                         // type="hidden" name="callumfee" value={0.10} 
@@ -1237,7 +1237,7 @@ $<input
                                                     <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total Due <span><FaHandHoldingUsd /></span> </label>
                                                         <input readOnly
                                                             // id="total" type="number" name="total"  //for function calculations
-                                                            
+
                                                             // type="number" name="totaldue" value={((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency) - 19.75).toFixed(2)}
                                                             // type="text" name="totaldue" value={"$" + ((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency) + (.10 * -this.state.invoice.rate2 * this.state.invoice.frequency2 + this.state.invoice.rate2 * this.state.invoice.frequency2) - 19.75).toFixed(2)}
                                                             type="text" name="totaldue" value={'$' + ((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency - 19.75).toFixed(2) && ((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency) + (.10 * -this.state.invoice.rate2 * this.state.invoice.frequency2 + this.state.invoice.rate2 * this.state.invoice.frequency2) - 19.75).toFixed(2))}
@@ -1251,14 +1251,13 @@ $<input
 
                                         </TotalsInvoice>
                                         <div className="memo noprint"> <b>Memo:</b>  <br />
-                                            <i>  {this.state.employee.employeename} serviced {this.state.invoice.client} for {this.state.invoice.frequency} {this.state.invoice.result}s at a rate of {"$" + this.state.invoice.rate} per {this.state.invoice.result} = <b> {"$" + (this.state.invoice.rate * this.state.invoice.frequency).toFixed(2)} </b>
-                                            {this.state.employee.employeename} also serviced {this.state.invoice.client2} for {this.state.invoice.frequency2} {this.state.invoice.result2}s at a rate of {"$" + this.state.invoice.rate2} per {this.state.invoice.result2} = <b> {"$" + (this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2)} </b>
-                                                for a total of <b>{'$' + ((this.state.invoice.rate * this.state.invoice.frequency).toFixed(2) && (this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2))} </b>
-                                                minus Arise Service Fee <b>({"$" + 19.75})</b> and IB 10% Fee <b>({'$' + ((this.state.invoice.rate * this.state.invoice.frequency * .10).toFixed(2) && (this.state.invoice.rate * this.state.invoice.frequency * .10 + this.state.invoice.rate2 * this.state.invoice.frequency2 * .10).toFixed(2))})</b>.
-    <b>  Total Due = {'$' + ((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency - 19.75).toFixed(2) && ((.10 * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency) + (.10 * -this.state.invoice.rate2 * this.state.invoice.frequency2 + this.state.invoice.rate2 * this.state.invoice.frequency2) - 19.75).toFixed(2))}</b></i>
-                                        </div>
-                                        <br />
-
+                                                    <i> {this.state.invoice.frequency} {this.state.invoice.client} {this.state.invoice.result}s at a rate of {"$" + this.state.invoice.rate} per {this.state.invoice.result} = <b> {"$" + (this.state.invoice.rate * this.state.invoice.frequency).toFixed(2)}. </b>
+                                                        {this.state.invoice.frequency2} {this.state.invoice.client2}  {this.state.invoice.result2}s at a rate of {"$" + this.state.invoice.rate2} per {this.state.invoice.result2} = <b> {"$" + (this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2)} </b>
+                                                        for a total of <b>{'$' + ((this.state.invoice.rate * this.state.invoice.frequency).toFixed(2) && (this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2))} </b>
+                                                        minus {this.state.invoice.namefee} <b>({"$" + this.state.invoice.arisefee})</b> and {this.state.invoice.otherfee} <b>({'$' + ((this.state.invoice.rate * this.state.invoice.frequency * (this.state.invoice.callumfee)).toFixed(2) && (this.state.invoice.rate * this.state.invoice.frequency * (this.state.invoice.callumfee) + this.state.invoice.rate2 * this.state.invoice.frequency2 * (this.state.invoice.callumfee)).toFixed(2))})</b>.
+                                                <b>  Total Due = {'$' + (((this.state.invoice.callumfee) * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency - this.state.invoice.arisefee).toFixed(2) && (((this.state.invoice.callumfee) * -this.state.invoice.rate * this.state.invoice.frequency + this.state.invoice.rate * this.state.invoice.frequency) + ((this.state.invoice.callumfee) * -this.state.invoice.rate2 * this.state.invoice.frequency2 + this.state.invoice.rate2 * this.state.invoice.frequency2) - this.state.invoice.arisefee).toFixed(2))}</b></i>
+                                                </div>
+                                                <br />
 
                                         {/* <DletBtn>
         <button className='noprint dlet' onClick={e =>
