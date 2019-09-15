@@ -342,7 +342,8 @@ input{
     float: right; 
     text-align: right;
     align-content: right;
-    
+    width: 100px;
+
 }
 input:focus, textarea:focus{
     background: transparent;
@@ -630,14 +631,14 @@ font-weight: 200;
    
 `
 const LogoIdDiv = styled.div`
-padding-top: 50px;
-padding-bottom: 20px;
+padding-top: 30px;
+// padding-bottom: 20px;
 
 display: flex
 justify-content: space-between;
 align-content: center;
 .invoiceNum{
-    margin-left: 50vw;
+    margin-left: 40vw;
     color: rgba(0,0,0, 0.3);
     font-weight: 200;
     
@@ -667,6 +668,18 @@ img{
         position: absolute;
         margin-left: 65%;
 
+    }
+    textarea::placeholder{
+    
+        color: white;
+    }
+    textarea{
+        
+        @media print{
+            border: none;
+            resize:none;
+
+        }
     }
     .watermark{
         position: absolute;
@@ -836,7 +849,8 @@ class Invoices extends Component {
             callumfeeResults: '',
             showTotalCalc: '',
             viewSubs: '',
-            total: ''
+            total: '',
+            address: ''
         }
 
 
@@ -956,6 +970,10 @@ class Invoices extends Component {
 
                                                     {/* below is for url linked image  */}
                                                     <img src={this.state.invoice.image} alt="Add your logo" />
+                                                    <textarea 
+                                                    onBlur={() => this.handleUpdate(this.state.invoice._id)}
+                                                    onChange={(event) => this.handleChange(event, this.state.invoice._id)}
+                                                    type="text" name="address" id="address" value={this.state.invoice.address} cols="30" rows="4" placeholder="your company's name and address"></textarea>
 
                                                     {/* below is for uploaded image  */}
                                                     {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
@@ -1224,7 +1242,7 @@ class Invoices extends Component {
 
                                                 <TotalDue>
                                                     {/* another company totals */}
-                                                    <th>   <label htmlFor="totaldue">Total <span> <FaHandHoldingUsd /> </span> Due this period: </label></th>
+                                                    <th>   <label htmlFor="totaldue">Total Due<span> <FaHandHoldingUsd /> </span></label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(this.state.invoice._id)}
                                                         onChange={(event) => this.handleChange(event, this.state.invoice._id)}

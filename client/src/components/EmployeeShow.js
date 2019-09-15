@@ -360,20 +360,21 @@ const SubtotalBox = styled.div`
 border:.5px solid rgba(0,0,0, 0.2);
 border-radius: 2px;
 padding: 5px;
-width: 50%;
+// width: 50%;
 tr{
     align-items: center;
 }
 .namefee, .otherfee{
     float: left;
     text-align: left;
+    
         }
 input{
     float: right; 
     text-align: right;
     align-content: right;
     background: rgba(151, 240, 240, 0.2);
-
+    width: 100px;
 }
 #viewSubs{
     background: transparent;
@@ -613,14 +614,13 @@ font-weight: 200;
    
 `
 const LogoIdDiv = styled.div`
-padding-top: 50px;
-padding-bottom: 20px;
+padding-top: 30px;
 
 display: flex
 justify-content: space-between;
 align-content: center;
 .invoiceNum{
-    margin-left: 50vw;
+    margin-left: 40vw;
     color: rgba(0,0,0, 0.3);
     font-weight: 200;
     
@@ -651,7 +651,17 @@ img{
         margin-left: 65%;
 
     }
-    
+    textarea::placeholder{
+        font-weight: 100;
+        font-size: 10px;
+    }
+    textarea{
+        @media print{
+            border: none;
+            resize:none;
+
+        }
+    }
 `
 
 
@@ -794,6 +804,7 @@ class EmployeeShow extends Component {
             showTotalCalc: '',
             viewSubs: '',
             total: '',
+            address: '',
             // id: 'idnumber'
             // addLine: true,
         }
@@ -803,7 +814,7 @@ class EmployeeShow extends Component {
     //         addLine: !this.state.addLine
     //     })
     // }
-    
+
 
     componentDidMount() {
         // make an api call to get one single employee
@@ -898,15 +909,15 @@ class EmployeeShow extends Component {
 
 
 
-//     function myFunction() {
-//         var x = document.getElementById("displayInvoice");
-//         if (x.style.display === "none") {
-//           x.style.display = "block";
-//         } else {
-//           x.style.display = "none";
-//         }
-//       }
-// 
+    //     function myFunction() {
+    //         var x = document.getElementById("displayInvoice");
+    //         if (x.style.display === "none") {
+    //           x.style.display = "block";
+    //         } else {
+    //           x.style.display = "none";
+    //         }
+    //       }
+    // 
 
     render() {
 
@@ -943,7 +954,7 @@ class EmployeeShow extends Component {
                     </Topbtns>
 
                     <div>
-                        
+
                         <InvoicesContainerStyle>
 
 
@@ -1096,18 +1107,18 @@ class EmployeeShow extends Component {
                                 //     frequency2.value = 0
                                 // } 
                                 // }
-                                
+
 
                                 return (
-                                    
+
                                     <Addlogo>
                                         {/* below is add logo url input field for another company */}
                                         <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
-                                <input className='logo noprint' id='imgurl'
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) '
-                                />
+                                        <input className='logo noprint' id='imgurl'
+                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                            name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) '
+                                        />
 
                                         {/* below is upload input field for another company */}
                                         {/* <input type="file" 
@@ -1115,19 +1126,19 @@ class EmployeeShow extends Component {
                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                     name="uploadImage" className="logo noprint filetype" id="imgurl group_image" 
                                     /> */}
-                                        
+
                                         <InvoiceStyles>
-                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick={this.handleClick.bind(this, invoice._id)}>
-                                        <h3>(Invoice{index +1}) <br/> ID:{invoice._id}</h3>
-</Link>
-               
+                                            <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                onClick={this.handleClick.bind(this, invoice._id)}>
+                                                <h3>(Invoice{index + 1}) <br /> ID:{invoice._id}</h3>
+                                            </Link>
+
                                             <BkgdImg>
 
-                                            <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick={this.handleClick.bind(this, invoice._id, index)}>
-                                                            <div className="printSave"><button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button></div>
-                                                        </Link>
+                                                <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                    onClick={this.handleClick.bind(this, invoice._id, index)}>
+                                                    <div className="printSave"><button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button></div>
+                                                </Link>
                                                 <LogoStyles>
                                                     <LogoIdDiv>
 
@@ -1136,16 +1147,19 @@ class EmployeeShow extends Component {
                                                             {/* another company can add its own logo here */}
 
                                                             {/* below is for url linked image  */}
-                                                            <img src={invoice.image} alt="Your Logo Here"  /> 
-
+                                                            <img src={invoice.image} alt="Your Logo Here" />
+                                                            <textarea 
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="address" id="address" value={invoice.address} cols="30" rows="4" placeholder="your company's name and address"></textarea>
                                                             {/* below is for uploaded image  */}
                                                             {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
 
 
                                                         </a>
-                                                        
-                                                            <div className="invoiceNum">ID:{invoice._id}  </div><br />
-                                                        
+
+                                                        <div className="invoiceNum">ID:{invoice._id}  </div><br />
+
                                                     </LogoIdDiv>
 
                                                     <div className="employeeinfo">
@@ -1278,7 +1292,7 @@ class EmployeeShow extends Component {
                                                         // : null
                                                     }
                                                 </LineItemsGrid>
-                                             
+
                                                 {/* button for next line */}
                                                 {/* <button onClick={() => this.addStuff()}>add item</button> */}
 
@@ -1311,30 +1325,30 @@ class EmployeeShow extends Component {
 
 
                                                         {/* changeable fees for another company fee */}
-                                                       
-                                            <tr><label htmlFor="namefee" >Add'l Fees(opt):</label></tr>
-                                            <input className="namefee"
-                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="text" placeholder='Business Fees (optional) name' name="namefee" value={invoice.namefee} /> 
-                                            <input className="arfee"
-                                                onBlur={() => this.handleUpdate(invoice._id)}
-                                                onChange={(event) => this.handleChange(event, invoice._id)}
-                                                type="text" name="arisefee" value={(invoice.arisefee)} placeholder='enter 0 if none' required='true'
-                                            />
-                                            <br/> <br/>
-                                            <tr>    <label htmlFor="otherfee">Other fee(decimals): </label></tr>
-                                            <input className="otherfee"
-                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="text" placeholder='Taxes (optional) name' name="otherfee" value={invoice.otherfee} /> 
-                                            <input
-                                                onBlur={() => this.handleUpdate(invoice._id)}
-                                                onChange={(event) => this.handleChange(event, invoice._id)}
-                                                type="text" name="callumfee" placeholder='enter 0 if none' value={(invoice.callumfee)}
-                                            />
-                                            <br/> <br/> 
-                                           
+
+                                                        <tr><label htmlFor="namefee" >Add'l Fees(opt):</label></tr>
+                                                        <input className="namefee"
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" placeholder='Business Fees (optional) name' name="namefee" value={invoice.namefee} />
+                                                        <input className="arfee"
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="arisefee" value={(invoice.arisefee)} placeholder='enter 0 if none' required='true'
+                                                        />
+                                                        <br /> <br />
+                                                        <tr>    <label htmlFor="otherfee">Other fee(decimals): </label></tr>
+                                                        <input className="otherfee"
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" placeholder='Taxes (optional) name' name="otherfee" value={invoice.otherfee} />
+                                                        <input
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="callumfee" placeholder='enter 0 if none' value={(invoice.callumfee)}
+                                                        />
+                                                        <br /> <br />
+
 
                                                         {/* Callum Enterprise Arise fees */}
                                                         {/* <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0' />
@@ -1349,17 +1363,17 @@ class EmployeeShow extends Component {
 
                                                             /></tr> */}
                                                         {/* <tr > */}
-                                                            {/* <label htmlFor="callumfee">IB Fee 10%:</label> */}
+                                                        {/* <label htmlFor="callumfee">IB Fee 10%:</label> */}
 
 
-                                                            {/* for function calculations below */}
+                                                        {/* for function calculations below */}
 
-                                                            {/* <input id="callumfeeResults" type="number" name="callumfeeResults" value={invoice.callumfeeResults}
+                                                        {/* <input id="callumfeeResults" type="number" name="callumfeeResults" value={invoice.callumfeeResults}
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             /> */}
 
-                                                            {/* <input id="callumfee" readOnly
+                                                        {/* <input id="callumfee" readOnly
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
 
@@ -1376,14 +1390,14 @@ class EmployeeShow extends Component {
 
                                                         <TotalDue>
                                                             {/* another company totals */}
-                                                            <th>   <label htmlFor="totaldue">Total <span> <FaHandHoldingUsd /> </span> Due this period: </label></th>
-                                                <input
-                                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    // type="text" name="totaldue" value={"$" + ((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
-                                                    type="text" name="totaldue" value={'$' + (((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)}
+                                                            <th>   <label htmlFor="totaldue">Total Due<span> <FaHandHoldingUsd /> </span></label></th>
+                                                            <input
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                // type="text" name="totaldue" value={"$" + ((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
+                                                                type="text" name="totaldue" value={'$' + (((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)}
 
-                                                /> 
+                                                            />
 
 
                                                             {/* Callum Ent totals */}
@@ -1415,10 +1429,10 @@ class EmployeeShow extends Component {
                                                 </div>
                                                 <br />
                                                 <OptionsInvoice className='noprint printSave'>
-                                                <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick={this.handleClick.bind(this, invoice._id)}>
-                                                            <button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button>
-                                                        </Link>
+                                                    <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                        onClick={this.handleClick.bind(this, invoice._id)}>
+                                                        <button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button>
+                                                    </Link>
                                                     {/* <a href="javascript:window.print()" ><span><FaPrint /></span> <br /> Print </a> 
                                                     <a href="javascript:window.print()"><span><FaFileDownload /></span> <br /> Download <br /></a> */}
                                                     <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br /><p>Pay</p></button> </a>
@@ -1431,8 +1445,8 @@ class EmployeeShow extends Component {
                                                 </DletBtn><br />
                                             </BkgdImg>
 
-                                            
-                                        </InvoiceStyles> <br/><br/>
+
+                                        </InvoiceStyles> <br /><br />
                                     </Addlogo>
 
                                 )
