@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
+import { FaFileInvoiceDollar, FaFolder, FaPlusCircle, FaArrowCircleLeft} from 'react-icons/fa';
 import NavBar from '../components/NavBar'
 
 
@@ -224,7 +224,7 @@ class Employee extends Component {
           <h1>
             {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
             <br/>Employee Directory</h1>
-          
+       <a href="https://tenderpay.herokuapp.com/employees"><button> <FaArrowCircleLeft className='icons'/> Back to sample version</button></a>   
 <br/><br/> 
 <EmployeeOutline>
 

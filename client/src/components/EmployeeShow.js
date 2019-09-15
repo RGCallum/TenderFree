@@ -1091,19 +1091,20 @@ class EmployeeShow extends Component {
                                     
                                     <Addlogo>
                                         {/* below is add logo url input field for another company */}
-                                        {/* <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
+                                        <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
                                 <input className='logo noprint' id='imgurl'
                                     onBlur={() => this.handleUpdate(invoice._id)}
                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                     name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) '
-                                /> */}
+                                />
 
                                         {/* below is upload input field for another company */}
                                         {/* <input type="file" 
                                     onBlur={() => this.handleUpdate(invoice._id)}
                                     onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="uploadImage" className="logo noprint filetype" id="imgurl group_image"
+                                    name="uploadImage" className="logo noprint filetype" id="imgurl group_image" 
                                     /> */}
+                                        
                                         <InvoiceStyles>
                                         <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
                                                             onClick={this.handleClick.bind(this, invoice._id)}>
@@ -1124,13 +1125,11 @@ class EmployeeShow extends Component {
                                                             {/* another company can add its own logo here */}
 
                                                             {/* below is for url linked image  */}
-                                                            {/* <img src={invoice.image} alt="Add your logo"  />  */}
+                                                            <img src={invoice.image} alt="Your Logo Here"  /> 
 
                                                             {/* below is for uploaded image  */}
                                                             {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
 
-                                                            {/* below is Callum Enterprise logo */}
-                                                            <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
                                                         </a>
                                                         
@@ -1268,49 +1267,7 @@ class EmployeeShow extends Component {
                                                         // : null
                                                     }
                                                 </LineItemsGrid>
-                                                <Client1Invoice>
-
-                                                    {/* <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
-                                                    <input
-                                                        onBlur={() => this.handleUpdate(invoice._id)}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="client" value={invoice.client} placeholder='Client'
-                                                    /></td>
-                                                    <td id="box">  <th> <label htmlFor="timew" className='required'><span> ⏱ </span>Time Worked:</label></th>
-                                                        <input
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
-                                                        />
-                                                      
-                                                    </td>
-
-
-                                                    <td id="box">  <th><label htmlFor="result" ><span> ⌛ </span>Interval Type: </label></th>
-                                                        <input
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
-                                                        /></td>
-                                                    <td id="box">  <th><label htmlFor="rate" className='required'><span> <FaMoneyBillAlt/> </span>Interval Rate: </label></th>
-                                                        $<input
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
-                                                        /></td>
-
-                                                </tr> */}
-
-                                                    {/* media query invoice */}
-
-
-                                                    <br />
-                                                    {/* <div className="lineItem-app container">
-                                                <h1 className="center blue-text">LineItems</h1>
-                                                <LineItems lineItems={this.state.lineItems} deleteLineItem={this.deleteLineItem} />
-                                                <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
-                                            </div> */}
-                                                </Client1Invoice>
+                                             
                                                 {/* button for next line */}
                                                 {/* <button onClick={() => this.addStuff()}>add item</button> */}
 
@@ -1343,33 +1300,33 @@ class EmployeeShow extends Component {
 
 
                                                         {/* changeable fees for another company fee */}
-                                                        {/* <br/> <br/>
-                                            <th>   <label htmlFor="namefee" >Add'l Fees to subtract (opt):</label></th>
+                                                        <br/> <br/>
+                                            <th>   <label htmlFor="namefee" >Add'l Fees(opt):</label></th>
                                             <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="text" placeholder='Business Fees (optional) name' name="namefee" value={invoice.namefee} /> <br/>
-                                            $<input className="arfee"
+                                            <input className="arfee"
                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                type="number" name="arisefee" value={invoice.arisefee} placeholder='enter 0 if none' required='true'
+                                                type="text" name="arisefee" value={(invoice.arisefee)} placeholder='enter 0 if none' required='true'
                                             />
                                             <br/> <br/>
-                                            <th>    <label htmlFor="otherfee">Other fees to subtract (use decimals): </label></th>
+                                            <th>    <label htmlFor="otherfee">Other fee(decimals): </label></th>
                                             <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="text" placeholder='Taxes (optional) name' name="otherfee" value={invoice.otherfee} /> <br/>
-                                            $<input
+                                            <input
                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                type="number" name="callumfee" placeholder='enter 0 if none' value={(invoice.callumfee)}
+                                                type="text" name="callumfee" placeholder='enter 0 if none' value={(invoice.callumfee)}
                                             />
                                             <br/> <br/> 
-                                            */}
+                                           
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0' />
+                                                        {/* <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0' />
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee" readOnly
@@ -1379,9 +1336,9 @@ class EmployeeShow extends Component {
                                                                 type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
                                                             // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
 
-                                                            /></tr>
-                                                        <tr >
-                                                            <label htmlFor="callumfee">IB Fee 10%:</label>
+                                                            /></tr> */}
+                                                        {/* <tr > */}
+                                                            {/* <label htmlFor="callumfee">IB Fee 10%:</label> */}
 
 
                                                             {/* for function calculations below */}
@@ -1391,7 +1348,7 @@ class EmployeeShow extends Component {
                                                                 onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             /> */}
 
-                                                            <input id="callumfee" readOnly
+                                                            {/* <input id="callumfee" readOnly
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
 
@@ -1402,23 +1359,24 @@ class EmployeeShow extends Component {
                                                                 // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
                                                                 type="text" name="callumfee" value={'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
-                                                            /></tr>
+                                                            /></tr> */}
 
 
 
                                                         <TotalDue>
                                                             {/* another company totals */}
-                                                            {/* <th>   <label htmlFor="totaldue">Total <span> <FaMoneyBillAlt/> </span> Due this period: </label></th>
+                                                            <th>   <label htmlFor="totaldue">Total <span> <FaMoneyBillAlt/> </span> Due this period: </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    type="number" name="totaldue" value={((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
-                                                /> */}
-                                                            {/* type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)} */}
+                                                    // type="text" name="totaldue" value={"$" + ((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
+                                                    type="number" name="totaldue" value={(((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)}
+
+                                                /> 
 
 
                                                             {/* Callum Ent totals */}
-                                                            <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
+                                                            {/* <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
                                                             <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total Due <span><FaHandHoldingUsd /></span> </label>
                                                                 <input readOnly
@@ -1429,7 +1387,7 @@ class EmployeeShow extends Component {
                                                                     // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
                                                                     type="text" name="totaldue" value={'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
-                                                                /></tr>
+                                                                /></tr> */}
 
                                                         </TotalDue>
 
@@ -1441,8 +1399,8 @@ class EmployeeShow extends Component {
                                                     <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> {"$" + (invoice.rate * invoice.frequency).toFixed(2)}. </b>
                                                         {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
                                                         for a total of <b>{'$' + ((invoice.rate * invoice.frequency).toFixed(2) && (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))} </b>
-                                                        minus Arise Service Fee <b>({"$" + 19.75})</b> and IB 10% Fee <b>({'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))})</b>.
-                                                <b>  Total Due = {'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
+                                                        minus {invoice.namefee} <b>({"$" + invoice.namefee})</b> and {invoice.otherfee} <b>({'$' + ((invoice.rate * invoice.frequency * (invoice.callumfee)).toFixed(2) && (invoice.rate * invoice.frequency * (invoice.callumfee) + invoice.rate2 * invoice.frequency2 * (invoice.callumfee)).toFixed(2))})</b>.
+                                                <b>  Total Due = {'$' + (((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && (((invoice.callumfee) * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + ((invoice.callumfee) * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
                                                 </div>
                                                 <br />
                                                 <OptionsInvoice className='noprint printSave'>

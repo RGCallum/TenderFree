@@ -72,9 +72,9 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> <FaHome />&#160; <p>Home</p>
+                        <a href="https://tenderpay.herokuapp.com/employees"> <FaHome />&#160; <p>Home</p>
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
-                         </Link> 
+                         </a> 
 
                         <Link to="/employees"> <FaUsers/>&#160; <p>Directory</p></Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
