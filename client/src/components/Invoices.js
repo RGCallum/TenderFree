@@ -246,6 +246,13 @@ align-content: center;
 input{
     width: 35%;
 }
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+   }
+   
+   input::-webkit-calendar-picker-indicator {
+      display: none;
+   }
 @media only screen and (max-width: 414px){
 // margin-top: -26%;
 margin-left: -5%;
