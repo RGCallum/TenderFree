@@ -255,7 +255,13 @@ input{
     height: 100%;
     // background-color: transparent;
 }
-
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+   }
+   
+   input::-webkit-calendar-picker-indicator {
+      display: none;
+   }
 }
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
