@@ -757,9 +757,7 @@ text-align: center;
 #phone{
     display: none;
 }
-#phone{
-    display: none;
-}
+
 @media only screen and (max-width: 414px) {
     align-content: center;
     text-align: center;

@@ -1108,6 +1108,7 @@ class Invoices extends Component {
 
                                                         <td id="desktop">    <div ><span> <FaScroll /> </span> <br />Description</div></td>
                                                         <td id="phone">    <div ><span> <FaScroll /> </span> <br />Desc- <br/> ription</div></td>
+                                                        
                                                 <td>    <div className='required'><span> <FaDollarSign /> </span><br />Price</div></td>
                                                 <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
                                                 <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
