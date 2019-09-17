@@ -244,15 +244,28 @@ input{
 }
 
 }
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+   }
+   
+   input::-webkit-calendar-picker-indicator {
+      display: none;
+   }
 @media print { 
     padding-top: 80px;
     input{
         border: none;
         
     } 
-    input[type="date"]::-webkit-clear-button{
-        display: none;
+  
+        input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
     }
+    
+    input::-webkit-calendar-picker-indicator {
+       display: none;
+    }
+    
 
 }
 `
@@ -641,15 +654,7 @@ position: relative;
 }
 font-weight: 200;
 
-@media print{
-    input::-webkit-inner-spin-button {
- -webkit-appearance: none;
-}
-
-input::-webkit-calendar-picker-indicator {
-   display: none;
-}
-} 
+ 
 
    
 `
