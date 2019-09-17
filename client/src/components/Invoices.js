@@ -660,7 +660,7 @@ align-content: center;
     @media only screen and (max-width: 414px){
         margin-top: -5%;
         font-size: 9px;
-        margin-left: -12vw;
+        margin-left: -20vw;
 
     }
       }
