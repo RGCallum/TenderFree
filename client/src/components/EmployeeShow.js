@@ -401,8 +401,9 @@ label{
 
 }
 @media only screen and (max-width: 414px) {
+    width: 100%;
     input{
-        width: 100px;
+        width: 80px;
         #subBtn{
             width: 100px;
         }
@@ -439,7 +440,7 @@ input:focus{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 95px;    }
+        width: 50px;    }
   
 }
 @media print{
@@ -625,8 +626,10 @@ align-content: center;
     font-weight: 200;
     
     @media only screen and (max-width: 414px){
-        // margin-left: -5%;
+        margin-top: -5%;
         font-size: 9px;
+    margin-left: -5vw;
+
     }
       }
       .invoiceNum:hover{
@@ -642,7 +645,7 @@ img{
         margin-top: -5%;
         margin-bottom: 50px;
         @media only screen and (max-width: 414px){
-            // margin-left: 0%;
+            margin-top: -6%;
         }
     }
 .logo{
@@ -740,12 +743,21 @@ text-align: center;
 #subsHead2{
     display:none;
 }
+#phone{
+    display: none;
+}
 @media only screen and (max-width: 414px) {
     align-content: center;
     text-align: center;
     justify-content: center;
     width: 95vw;
     margin-left: -20px;
+    #desktop{
+        display:none;
+    }
+    #phone{
+        display: block;
+    }
     #subsHead{
         display: none;
     }
@@ -1212,9 +1224,14 @@ class EmployeeShow extends Component {
 
 
                                                     <div className="row header">
-                                                        <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Item/Service</div></td>
+                                                        <td id="desktop">    <div className='required' ><span> <FaBriefcase /> </span> <br /> Item/Service</div></td>
+                                                        <td id="phone">    <div className='required' ><span> <FaBriefcase /> </span> <br /> Item / <br/> Service</div></td>
+
                                                         <td>    <div className='required'><span> <FaCartPlus /> </span> <br /> Quantity</div></td>
-                                                        <td>    <div ><span> <FaScroll /> </span> <br />Description</div></td>
+
+                                                        <td id="desktop">    <div ><span> <FaScroll /> </span> <br />Description</div></td>
+                                                        <td id="phone">    <div ><span> <FaScroll /> </span> <br />Desc- <br/> ription</div></td>
+
                                                         <td>    <div className='required'><span> <FaDollarSign /> </span><br />Price</div></td>
                                                         <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
                                                         <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
