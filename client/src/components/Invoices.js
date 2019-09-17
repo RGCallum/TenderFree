@@ -641,7 +641,15 @@ position: relative;
 }
 font-weight: 200;
 
-   
+@media print{
+    input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+   display: none;
+}
+} 
 
    
 `
@@ -798,6 +806,9 @@ text-align: center;
 #subsHead2{
     display:none;
 }
+#phone{
+    display: none;
+}
 @media only screen and (max-width: 414px) {
     align-content: center;
     text-align: center;
@@ -810,6 +821,7 @@ text-align: center;
     #phone{
         display: block;
     }
+  
     #subsHead{
         display: none;
     }
@@ -824,6 +836,7 @@ text-align: center;
 //     }
 }
 @media print {
+
     .row, .lineItems {
         input{
             border: none;

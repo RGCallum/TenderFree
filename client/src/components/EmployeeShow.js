@@ -250,6 +250,7 @@ position: relative;
 z-index: 100;
 `
 const PeriodInvoice = styled.div`
+
 padding-top: 20px;
 padding-bottom: 10px;
 // border: black solid 1px;
@@ -616,7 +617,7 @@ position: relative;
 }
 font-weight: 200;
 
-   
+
 
    
 `
@@ -752,6 +753,9 @@ text-align: center;
 
 #subsHead2{
     display:none;
+}
+#phone{
+    display: none;
 }
 #phone{
     display: none;
