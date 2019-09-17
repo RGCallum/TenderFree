@@ -351,6 +351,8 @@ input{
 #viewSubs{
     background: transparent;
     border: none;
+    margin-left: 70px;
+
 }
 input:focus, textarea:focus{
     background: transparent;
@@ -381,7 +383,10 @@ label{
             width: 100px;
         }
     }
-    
+    #viewSubs{
+        margin-top: -15px;
+
+    }
 }
 `
 const CommentsBox = styled.div`
@@ -404,6 +409,7 @@ input{
     color: rgb(28, 147, 145);
     font-weight: bold;
     width: 132.5px;
+    margin-top: -20px;
 
 }
 @media only screen and (max-width: 414px) {
@@ -654,7 +660,7 @@ align-content: center;
     @media only screen and (max-width: 414px){
         margin-top: -5%;
         font-size: 9px;
-    margin-left: -5vw;
+        margin-left: -12vw;
 
     }
       }
@@ -689,8 +695,10 @@ img{
         @media print{
             border: none;
             resize:none;
-
         }
+        @media only screen and (max-width: 414px){
+            margin-top: 5px;      
+        }  
     }
     .watermark{
         position: absolute;

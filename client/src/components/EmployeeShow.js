@@ -379,6 +379,7 @@ input{
 #viewSubs{
     background: transparent;
     border: none;
+
 }
 input:focus, textarea:focus{
     // background: transparent;
@@ -408,7 +409,10 @@ label{
             width: 100px;
         }
     }
-    
+    #viewSubs{
+        margin-top: -15px;
+
+    }
 }
 `
 const CommentsBox = styled.div`
@@ -431,7 +435,7 @@ input{
     font-weight: bold;
     width: 132.5px;
     border: none;
-   
+   margin-top: -20px;
 
 }
 input:focus{
@@ -440,7 +444,8 @@ input:focus{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 50px;    }
+        width: 50px;  
+      }
   
 }
 @media print{
@@ -628,7 +633,7 @@ align-content: center;
     @media only screen and (max-width: 414px){
         margin-top: -5%;
         font-size: 9px;
-    margin-left: -5vw;
+    margin-left: -12vw;
 
     }
       }
@@ -646,6 +651,7 @@ img{
         margin-bottom: 50px;
         @media only screen and (max-width: 414px){
             margin-top: -6%;
+            
         }
     }
 .logo{
@@ -662,8 +668,11 @@ img{
         @media print{
             border: none;
             resize:none;
-
         }
+        @media only screen and (max-width: 414px){
+            margin-top: 5px;      
+        }  
+            
     }
 `
 
@@ -1407,7 +1416,7 @@ class EmployeeShow extends Component {
 
                                                         <TotalDue>
                                                             {/* another company totals */}
-                                                            <th>   <label htmlFor="totaldue">Total Due<span> <FaHandHoldingUsd /> </span></label></th>
+                                                            <th>   <label htmlFor="totaldue">Total Due<span> <FaHandHoldingUsd /></span></label></th>
                                                             <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
