@@ -210,11 +210,24 @@ position: relative;
         // background-color: transparent;
     }  
 }
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+   }
+   
+   input::-webkit-calendar-picker-indicator {
+      display: none;
+   }
 @media print { 
         input{
             border: none;
         }  
-
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+           }
+           
+           input::-webkit-calendar-picker-indicator {
+              display: none;
+           }
 }
 z-index: 100;
 `
