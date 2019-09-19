@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { FaHome, FaUsers, FaBars, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
+import { FaHome, FaUsers, FaBars, FaFolderOpen, FaPrint, FaFileInvoiceDollar, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 
 const NavBarStyles = styled.div`
 *{
@@ -72,6 +72,7 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
+                        
                         <a href="https://tenderpay.herokuapp.com/employees"> <FaHome />&#160; <p>Home</p>
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                          </a> 

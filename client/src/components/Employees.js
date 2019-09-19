@@ -104,6 +104,7 @@ border-radius: 5px;
 font-size: 16px;
 font-weight: 300;
 cursor: pointer;
+
 }
 button:hover{
   background: white;
