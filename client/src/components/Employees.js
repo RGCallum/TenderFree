@@ -52,15 +52,16 @@ input:focus, textarea:focus{
 }
 
 h1{
-  color: rgb(43, 172, 174);
+  color: #6A7FDB;
 // text-shadow: .5px .5px .5px gray;
 display: flex;
 justify-content: center;
 font-weight: 500;
 }
+
 span{
   color: white;
-  background-color: rgba(28, 147, 145, 0.5); 
+  background-color:  rgba(106, 127, 219, 0.5); 
   padding: 5px 9px 5px 9px;
   border-radius: 50px;
 }
@@ -226,8 +227,8 @@ class Employee extends Component {
             <h1>TenderFree</h1>
           <h1>Employee Directory </h1>
             
-       <a href="https://tenderpay.herokuapp.com/employees"><button> <FaArrowCircleLeft className='icons'/> Back to sample version</button></a>   
-<br/><br/> 
+       {/* <a href="https://tenderpay.herokuapp.com/employees"><button> <FaArrowCircleLeft className='icons'/> Back to sample version</button></a>    */}
+<br/>
 <EmployeeOutline>
 
           {this.state.employees.map((employee, index) => ( 
