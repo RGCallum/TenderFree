@@ -30,12 +30,12 @@ height: 100%;
 form{
   justify-content: center;
   padding-bottom: 10px;
-  box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
+  box-shadow: 1px 1px 5px rgba(106, 127, 219, 0.4);
   background-color:  rgba(255,255,255,0.95);
   
 }
 input{
-  background: rgba(151, 240, 240, 0.2);
+  background: rgba(106, 127, 219, 0.2);
   border:.5px solid rgba(0,0,0, 0.2);
 border-radius: 2px;
 padding: 5px;
@@ -85,14 +85,14 @@ font-weight: 400;
 a{
   // margin-left: 10%;
   text-decoration: none;
-  color: rgb(28, 147, 145);
+  color: rgba(106, 127, 219);
   font-size: 12px;
 
 }
  a:hover{
-  color: blue;
+  color: rgb(28, 147, 145);
   h3{
-    color: blue;
+    color: rgb(28, 147, 145);
   }
 }
 a:visited{
@@ -169,7 +169,7 @@ font-size: 15px;
 
 
 const EmployeeOutline = styled.div`
-box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
+box-shadow: 1px 1px 5px rgba(106, 127, 219, 0.4);
 // border: solid black .5px;
 
 `
